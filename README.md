@@ -16,7 +16,7 @@ Compile with:
 Run compress.py to get the compressed hex.
 Add the hex into exploit.py
 
-##Changes
+## Changes
 I also added a call to close the `su` fd after the writing is complete.
 I added some code to fix leaking fd's caused by the larger payload.
 I added some python code at the very end to dump the page cache for the `su` binary. I did this because after the exploit is run the `su` binary in memory is corrupted for the entire machine. This stops someone else from accidentally running your exploit instead of the legitimate `su` binary.
