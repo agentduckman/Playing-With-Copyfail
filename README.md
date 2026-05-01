@@ -7,6 +7,9 @@ I thought it might be fun to recompile the malicious ELF into a one shot instead
 
 So this implementation is written in assembly and just runs `cat /etc/shadow` but of course you can change it to do whatever you like as long as you format the arg table correctly.
 
+#### Updated 05/01/2026
+I've also added my own version of the interactive shell payload. Instead of spawning the root shell from the python process, it simply corrupts `su` and tells the user to quickly run it from their normal shell and manually dump `su` from page cache for stealth. This removes the suspicious python process from being a long running part of the exploit. Now your root shell is no longer tied to a python process and the 80+ open fd's are gone.
+
 ## Steps
 Write your new assembly code.
 Compile with:
